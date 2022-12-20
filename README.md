@@ -1,6 +1,9 @@
 <h1 align="center">Welcome Cronômetro.
 
 > 🦀 Desafio de lógica para criação de um cronômetro.
+
+<a href="https://maiconnunes315.github.io/Cronometro/">Abrir cronômetro</a>
+
 ## Download
 
 ```sh
