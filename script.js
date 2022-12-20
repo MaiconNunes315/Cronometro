@@ -1,34 +1,80 @@
 
 
-var contagem = document.getElementById("h2")
+let contagem = document.getElementById("h2")
+let buttonPlay = document.getElementById("buttonPlay");
+let timeList = document.getElementById("timeList");
 
-hor = 00 ;
-min = 00 ;
-seg = 00 ;
-var pause;
-
-
-function cron(){
-if( seg < 60){
-contagem.innerText = hor + ":" +  min + ":" + seg++;
-}else if ( seg == 60 & min < 59){
-  contagem.innerText = hor + ":" + min++ + ":" + (seg = 00);
-}else if ( min == 59){
-  contagem.innerText = hor++ + ":" + (min = 00) + ":" + (seg = 00);
-}
-}
+let hour = 0;
+let minutes = 0;
+let seconds = 0;
+let time = [];
+let play;
 
 
-function start(){
-  pause = setInterval(cron, 1000);
-}
 
-function stop(){
- clearInterval(pause)
+contagem.innerText = `0${hour}:0${minutes}:0${seconds}`
+
+function stringInTime(time) {
+  if (time < 10) {
+    return "0"+time
+  } else {
+    return time
+  }
 }
 
-function reset(){
-  clearInterval(pause)
-  contagem.innerHTML = "00:00:00";
+function cont() {
+  seconds += 1;
+  
+  contagem.innerText = `${stringInTime(hour)}:${stringInTime(minutes)}:${stringInTime(seconds)}`
+
+  if (seconds >= 60) {
+    minutes += 1;
+    seconds = 0;
+  }else if(minutes >= 60) {
+    hour += 1;
+    minutes = 0;
+  }else if (hour === 60) {
+    hour = 0;
+  }
 }
 
+function start() {
+
+  buttonPlay.setAttribute("disabled","true")
+  play = setInterval(cont, 1000)
+  
+
+}
+
+function stop() {
+  
+  buttonPlay.removeAttribute("disabled")
+  clearInterval(play)
+  
+}
+
+function reset() {
+
+  clearInterval(play)
+  hour, minutes, seconds = 0;
+  contagem.innerText = `0${hour}:0${minutes}:0${seconds}`;
+  buttonPlay.removeAttribute("disabled")
+  time = [];
+  timeList.innerHTML = " "
+  
+}
+
+function addTime() {
+  
+  const savedTime = `${stringInTime(hour).toString()}:${stringInTime(minutes).toString()}:${stringInTime(seconds).toString()}`  
+  const li = document.createElement("li");
+
+  time.push(savedTime)
+  
+    li.innerText = time[time.length-1]
+    li.className = "mt-3 fs-2"
+    timeList.appendChild(li)
+  console.log(time)
+
+
+}
