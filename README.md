@@ -4,7 +4,7 @@
 ## Download
 
 ```sh
-git clone git@github.com:MaiconNunes315/Cron-metro.git
+git clone git@github.com:MaiconNunes315/Cronometro.git
 ```
 
 ## Author
