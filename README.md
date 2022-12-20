@@ -2,7 +2,7 @@
 
 > 🦀 Desafio de lógica para criação de um cronômetro.
 
-<a href="https://maiconnunes315.github.io/Cronometro/">Abrir cronômetro</a>
+<a href="https://maiconnunes315.github.io/Cronometro/" target="_blanck">Abrir cronômetro</a>
 
 ## Download
 
